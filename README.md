@@ -1,4 +1,4 @@
-# meetneat
+# Eat 'N Meet
 
 # Pages
 
