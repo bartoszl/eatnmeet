@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-03-17, 17:28:35
+    Author     : Ksenia
+*/
+
+
+.container-fluid {
+    height: 100vh;
+    margin-left:-20px;
+    margin-right:-20px;
+}
+
+.col-xs-6 {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    background-size: cover;
+}
+
+.col1 {
+    
+    background-image: url("images/pexels-photo-20708211.png");
+}
+
+/* font used "Segoe Print Bold"*/
+.col2 {
+    background-image: url("images/plates1TXT.png"); 
+}
+
+
+.img-responsive {
+    height: 100%;
+    width: 100%;
+}

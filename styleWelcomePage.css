@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-03-17, 16:35:41
+    Author     : Ksenia
+*/
+
+
+.jumbotron {
+    min-height: 100%; 
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
