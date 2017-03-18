@@ -21,23 +21,28 @@ and open the template in the editor.
 
 .col1 {
     background-image: url("images/cooking.png");
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    background-size: cover;
+    width: 50%;
 }
 
 /* font used "Segoe Print Bold"*/
 .col2 {
     background-image: url("images/hungry.png"); 
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    background-size: cover;
+    width: 50%;
 }
 
 .img-responsive {
     height: 100%;
     width: 100%;
 }
-.col-xs-6 {
-    padding-left: 0;
-    padding-right: 0;
-    height: 100%;
-    background-size: cover;
-}
+
 
 .welcomePageMain  {
     min-height: 100vh;
