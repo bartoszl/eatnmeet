@@ -80,10 +80,18 @@ and open the template in the editor.
     padding:0px
 }
 
-.container-fluid{
-    
-}
 
 /*Norbert End*/
 
 
+/*Bartek Start*/
+.food-item {
+  margin-top:50px;
+}
+/*Bartek End*/
+
+/*Scott Start*/
+h1{
+    text-align: center;
+}
+/*Scott End*/
