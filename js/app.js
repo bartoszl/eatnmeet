@@ -9,7 +9,7 @@ angular.module('myApp', ["ngRoute"])
     .when('/eat-or-cook', {
       templateUrl: "cookingOrHungry.html"
     })
-    .when('event-list', {
+    .when('/event-list', {
       templateUrl: "list.html"
     });
   })
