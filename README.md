@@ -1,5 +1,18 @@
 # Eat 'N Meet
 
+#TASKS
+
+* Scott -> Navbar (directive),
+
+* Bartek -> Directives events
+
+* Norbert -> Database profiles, events,
+
+* Ksenia -> Routing, time switch for Welcome page
+
+* Christos -> Directives profiles
+
+
 # Pages
 
 * Scott -> Empty Event
