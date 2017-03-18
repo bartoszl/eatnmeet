@@ -13,9 +13,9 @@ angular.module('myApp', ["ngRoute"])
       templateUrl: "list.html"
     });
   })
-  .controller('EventsController', function() {
+  .controller('EventsController', function($scope) {
 
-    var eventList = [{
+    $scope.eventList = [{
 
     }];
 
