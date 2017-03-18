@@ -1,0 +1,89 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-03-17, 16:35:41
+    Author     : Team O
+*/
+
+*{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*Ksenia Pages Start*/
+
+.col1 {
+    background-image: url("images/cooking.png");
+}
+
+/* font used "Segoe Print Bold"*/
+.col2 {
+    background-image: url("images/hungry.png"); 
+}
+
+.img-responsive {
+    height: 100%;
+    width: 100%;
+}
+.col-xs-6 {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    background-size: cover;
+}
+
+.welcomePageMain  {
+    min-height: 100vh;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-left:-20px;
+    margin-right:-20px;
+    font-size: 20px;
+    line-height: 2;
+}
+
+
+.vertical-center {
+  background-color: white;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/*Ksenia Pages End*/
+
+
+/*Christos Start*/
+.orange-text{
+    color:orange;
+}
+.top-buffer { margin-top:20px; }
+/*Christos End*/
+
+
+/*Norbert Start*/
+#map {
+    height:100vh;
+    width:100vw;
+}
+
+.c1 {
+    padding:0px
+}
+
+.container-fluid{
+    
+}
+
+/*Norbert End*/
+
+
