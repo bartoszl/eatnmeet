@@ -7,7 +7,7 @@ angular.module('myApp', ["ngRoute"])
       templateUrl: "welcomePage.html"
     })
     .when('/eat-or-cook', {
-      templateUrl: "cocokingOrHungry.html"
+      templateUrl: "cookingOrHungry.html"
     })
     .when('event-list', {
       templateUrl: "list.html"
@@ -20,6 +20,6 @@ angular.module('myApp', ["ngRoute"])
     }];
 
   })
-  .controler('WelcomeController', function() {
-    
+  .controller('WelcomeController', function() {
+
   });
