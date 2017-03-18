@@ -11,6 +11,9 @@ angular.module('myApp', ["ngRoute"])
     })
     .when('/event-list', {
       templateUrl: "list.html"
+    })
+    .when('/event-form', {
+      templateUrl: "NewEvent.html"
     });
   })
   .controller('EventsController', function($scope) {
