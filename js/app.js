@@ -16,7 +16,8 @@ var app = angular.module('myApp', ["ngRoute"])
       controller: "EventsController"
     })
     .when('/event-form', {
-      templateUrl: "NewEvent.html"
+      templateUrl: "NewEvent.html",
+        controller: "EventsController"
     });
   })
   .controller('EventsController', function($scope) {
@@ -118,6 +119,14 @@ var app = angular.module('myApp', ["ngRoute"])
     $scope.eventList = events;
     $scope.people = people;
     $scope.currentUserId = 3;
+
+      $scope.eventToAdd = {
+        id:$scope.currentUserId
+      };
+
+      $scope.addEvent = function(eventToAdd) {
+          events.push(angular.copy(eventToAdd))
+      };
 
     $scope.getNameForEvent = function(host_id) {
       var name = "";

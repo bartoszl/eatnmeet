@@ -1,50 +1,52 @@
+<body>
 
-    <body>
-        
-        <div class="container-fluid">
-            
-            <eat-navbar> </eat-navbar>
+<div class="container-fluid">
 
-            <div class="row">
-                <div class="col">
-                    <h1>New Event</h1>
-                </div>
-            </div>
+<eat-navbar> </eat-navbar>
 
-            <div class="row">
-                <div class="col">
-                    <form>
-                        <div class="form-group">
-                            <label for="inputEventName">Event Name</label>
-                            <input type="text" class="form-control" id="inputEventName" placeholder="Event Name...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEventLocation">Location</label>
-                            <input type="text" class="form-control" id="inputEventLocation" placeholder="Glasgow...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEventTime">Event Time</label>
-                            <input type="text" class="form-control" id="inputEventTime" placeholder="12:00...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputFoodType">Food Type</label>
-                            <input type="text" class="form-control" id="inputFoodType" placeholder="Food Type...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEventDescription">Description</label>
-                            <input type="text" class="form-control" id="inputEventDecsription" placeholder="Event Description...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEventPrice">Price</label>
-                            <input type="text" class="form-control" id="inputEventPrice" placeholder="Price...">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEventImage">Event Image</label>
-                           <input type="file" accept="image/*" class="form-control" id="inputEventImage">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div>
-            </div>
 
+    <div class="row">
+        <div class="col">
+            <h1>New Event</h1>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div ng-app="myapp" ng-controller="EventsController">
+                <form novalidate>
+                    <div class="form-group">
+                        <label for="inputEventName">Event Name</label>
+                        <input type="text" class="form-control" id="inputEventName" placeholder="Event Name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEventLocation">Location</label>
+                        <input type="text" class="form-control" id="inputEventLocation" placeholder="Glasgow..." ng-model="eventToAdd.street">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEventTime">Event Time</label>
+                        <input type="text" class="form-control" id="inputEventTime" placeholder="12:00..." ng-model="eventToAdd.date">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFoodType">Food Type</label>
+                        <input type="text" class="form-control" id="inputFoodType" placeholder="Food Type..." ng-model="eventToAdd.cuisine">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEventDescription">Description</label>
+                        <input type="text" class="form-control" id="inputEventDescription" placeholder="Event Description..." ng-model="eventToAdd.description">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEventPrice">Price</label>
+                        <input type="text" class="form-control" id="inputEventPrice" placeholder="Price..." ng-model="eventToAdd.price">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEventImage">Event Image</label>
+                        <input type="file" accept="image/*" class="form-control" id="inputEventImage" ng-model="eventToAdd.image">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="addEvent()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
