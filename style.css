@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 2017-03-17, 16:35:41
     Author     : Team O
 */
@@ -30,7 +30,7 @@ and open the template in the editor.
 
 /* font used "Segoe Print Bold"*/
 .col2 {
-    background-image: url("images/hungry.png"); 
+    background-image: url("images/hungry.png");
     padding-left: 0;
     padding-right: 0;
     height: 100%;
@@ -92,6 +92,16 @@ and open the template in the editor.
 /*Bartek Start*/
 .food-item {
   margin-top:50px;
+}
+
+.yellow-star {
+  color: #FFC617;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #888;
+}
+
+.empty-star {
+  color: #888;
 }
 /*Bartek End*/
 
