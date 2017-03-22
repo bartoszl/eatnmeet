@@ -8,7 +8,8 @@ var app = angular.module('myApp', ["ngRoute"])
       controller: "WelcomeController"
     })
     .when('/eat-or-cook', {
-      templateUrl: "cookingOrHungry.html"
+      templateUrl: "cookingOrHungry.html",
+      controller: "CookOrHungryController"
     })
     .when('/event-list', {
       templateUrl: "list.html",
@@ -144,4 +145,15 @@ var app = angular.module('myApp', ["ngRoute"])
       $location.path('/eat-or-cook');
       $scope.$apply();
     }, 1000);
+  })
+  .controller('CookOrHungryController', function($scope, $location) {
+    $scope.goToList = function() {
+      $location.path('/event-list');
+      //$scope.$apply();
+    };
+
+    $scope.goToNewEvent = function() {
+      $location.path('/event-form');
+      //$scope.$apply();
+    };
   });
