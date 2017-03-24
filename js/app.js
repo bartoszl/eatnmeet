@@ -121,12 +121,12 @@ var app = angular.module('myApp', ["ngRoute"])
     $scope.currentUserId = 3;
 
       $scope.eventToAdd = {
-        id:$scope.currentUserId
+         host_id: $scope.currentUserId 
       };
 
       $scope.addEvent = function(eventToAdd) {
-          events.push(angular.copy(eventToAdd))
-      };
+         $scope.eventList.push(angular.copy($scope.eventToAdd));
+	};
 
     $scope.getNameForEvent = function(host_id) {
       var name = "";
