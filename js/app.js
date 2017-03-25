@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('myApp', ["ngRoute"])
+var app = angular.module('myApp', ['ngRoute'])
   .config(function($routeProvider){
     $routeProvider
     .when("/", {
@@ -48,6 +48,46 @@ var app = angular.module('myApp', ["ngRoute"])
           visited_events_id: [0],
           profile_image: "/images/profile1.jpg"
       },{
+          id: 0,
+          name: "Daniel",
+          description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+          rating: 4,
+          no_rates: 5,
+          city: "Glasgow",
+          upcoming_event_id: [0],
+          visited_events_id: [0],
+          profile_image: "/images/profile0.jpg"
+      },{
+          id: 5,
+          name: "Robert",
+          description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+          rating: 4,
+          no_rates: 5,
+          city: "Glasgow",
+          upcoming_event_id: [3],
+          visited_events_id: [0],
+          profile_image: "/images/profile5.jpg"
+      },{
+          id: 6,
+          name: "Emma",
+          description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+          rating: 4,
+          no_rates: 5,
+          city: "Glasgow",
+          upcoming_event_id: [3],
+          visited_events_id: [0],
+          profile_image: "/images/profil6.jpg"
+      },{
+          id: 4,
+          name: "Eva",
+          description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+          rating: 4,
+          no_rates: 5,
+          city: "Glasgow",
+          upcoming_event_id: [5],
+          visited_events_id: [0],
+          profile_image: "/images/profile4.jpg"
+      },{
           id: 2,
           name: "Margot",
           description: "Welcome to my profile page! I am from Australia and I will be hosting many Italian meals in the future (even if I am from Australia). Don't miss any of it.",
@@ -61,7 +101,7 @@ var app = angular.module('myApp', ["ngRoute"])
 
       var events = [{
           id: 0,
-          host_id: 1,
+          host_id: 0,
           date: new Date("February 13, 2017 18:00:00"),
           street: '68 Ingram Street',
           city: 'Glasgow',
@@ -91,7 +131,7 @@ var app = angular.module('myApp', ["ngRoute"])
           picture: '/images/event2.jpg'
       }, {
           id: 3,
-          host_id: 1,
+          host_id: 5,
           date: new Date("April 02, 2017 16:30:00"),
           street: '68 Ingram Street',
           city: 'Glasgow',
@@ -101,7 +141,7 @@ var app = angular.module('myApp', ["ngRoute"])
           picture: '/images/event3.jpg'
       }, {
           id: 4,
-          host_id: 2,
+          host_id: 6,
           date: new Date("April 12, 2017 20:30:00"),
           street: '22 Duke Street',
           city: 'Glasgow',
@@ -111,7 +151,7 @@ var app = angular.module('myApp', ["ngRoute"])
           picture: '/images/event4.jpg'
       },{
           id: 5,
-          host_id: 1,
+          host_id: 3,
           date: new Date("April 23, 2017 17:00:00"),
           street: '13 George Street',
           city: 'Glasgow',
@@ -119,6 +159,16 @@ var app = angular.module('myApp', ["ngRoute"])
           description: 'Zlatan will take you for a trip around the world with some of the best international dishes',
           price: '9',
           picture: '/images/event5.jpg'
+      },{
+          id: 6,
+          host_id: 4,
+          date: new Date("April 23, 2017 17:00:00"),
+          street: '13 George Street',
+          city: 'Glasgow',
+          cuisine: 'International',
+          description: 'Zlatan will take you for a trip around the world with some of the best international dishes',
+          price: '9',
+          picture: '/images/event6.jpg'
       }];
 
     $scope.eventList = events;
