@@ -18,7 +18,12 @@ var app = angular.module('myApp', ["ngRoute"])
     .when('/event-form', {
       templateUrl: "NewEvent.html",
         controller: "EventsController"
-    });
+    })
+    .when('/profile/:id', {
+      templateUrl: "profile.html",
+      controller: "EventsController"
+    })
+    ;
   })
   .controller('EventsController', function($scope) {
 
@@ -164,5 +169,11 @@ var app = angular.module('myApp', ["ngRoute"])
     $scope.goToNewEvent = function() {
       $location.path('/event-form');
       //$scope.$apply();
-    };
+    };   
+  })
+  .controller('ProfileController', function($scope, $location) {
+      $scope.goToProfile = function() {
+        $location.path('/profile');
+        //$scope.apply();
+      };
   });

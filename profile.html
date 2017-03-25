@@ -1,21 +1,23 @@
 <div class="container-fluid c1 nopadding nomargin"> 
      <eat-navbar> </eat-navbar>
-       <div class="container" style="margin-top:8rem">
-            <div class="row">
+       <div class="container" style="margin-top:8rem" ng-repeat="profile in people">
+<!--           <a href="/profile/{{ profile.id }}">-->
+                <div class="row">
                     <div class="col-xs-6" >
-                            <img class="img-circle center-block" src="images/profile1.jpg" alt="profile photo" height="124" width="124"/>
+                            <img class="img-circle center-block" src="{{profile.profile_image}}" alt="profile image" height="124" width="124"/>
                     </div>
                     <div class="col-xs-6">
-                            <p><strong><h2>Chris</h2></strong></p>
+                            <p><strong><h2 style="margin-left: 2rem">{{profile.name}}</h2></strong></p>
                     </div>
-            </div>
-            <div class="row top-buffer">
+                </div>
+                <div class="row top-buffer">
                     <div class="col-md-6">
                             <p><strong><h4>Personal Details</h4></strong></p>
-                            <p>Nationality: Greek<br>Age: 25 <br>Location: Glasgow</p>
+                            <p>Rating: {{profile.rating}}/5<br>No. Rates: {{profile.no_rates}}<br>Location: {{profile.city}}</p>
                             <p><strong><h4>Description</h4></strong></p>
-                            <p>Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.</p>
+                            <p>{{profile.description}}</p>
                     </div>
-            </div>
+                </div>
+<!--           </a>-->
         </div>
 </div>
