@@ -110,4 +110,8 @@ and open the template in the editor.
 h1{
     text-align: center;
 }
+
+#newEventHeader {
+    margin-top: 60px;
+}
 /*Scott End*/
