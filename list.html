@@ -8,7 +8,7 @@
           <img class="card-img-top img-fluid" src="./{{event.picture}}">
           <div class="card-block">
             <div class="card-title clearfix">
-              <h4 class="float-left"> {{ getNameForEvent(event.host_id) }} </h4>
+              <h4 class="float-left"  ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id) }} </h4>
               <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
                  
               </span>
