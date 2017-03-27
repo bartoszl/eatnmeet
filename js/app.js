@@ -174,6 +174,16 @@ var app = angular.module('myApp', ['ngRoute'])
                     picture: '/images/event6.jpg'
                 }];
 
+            var filter = document.getElementById('filter');
+
+            $scope.toggleFilter = function() {
+              if(!filter.classList.contains("show")) {
+                filter.classList.add("show");
+              } else {
+                filter.classList.remove("show");
+              }
+            };
+
             $scope.eventList = events;
             $scope.people = people;
             $scope.currentUserId = 3;
