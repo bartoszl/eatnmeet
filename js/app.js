@@ -24,7 +24,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     })
                     ;
         })
-        .controller('EventsController', function ($scope, $routeParams) {
+        .controller('EventsController', function ($scope, $routeParams, $location) {
             var people = [{
                     id: 3,
                     name: "Zlatan",
@@ -193,7 +193,7 @@ var app = angular.module('myApp', ['ngRoute'])
                 // return profile where id === id
                 var user;
                 $scope.people.map(function (person) {
-                    if (person.id === id) {
+                    if (person.id == id) {
                         user = person;
                     }
                 });
@@ -290,6 +290,11 @@ var app = angular.module('myApp', ['ngRoute'])
                 details.push(event.description);
                 details.push(event.price);
             };
+
+            $scope.goToProfile = function(id) {
+                $location.path('/profile/'+id);
+                //$scope.$apply();
+            };
         })
 
 
@@ -306,10 +311,6 @@ var app = angular.module('myApp', ['ngRoute'])
             };
             $scope.goToNewEvent = function () {
                 $location.path('/event-form');
-                //$scope.$apply();
-            };
-            $scope.goToProfile = function(id) {
-                $location.path('/profile/'+id);
                 //$scope.$apply();
             };
         });
