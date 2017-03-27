@@ -182,7 +182,7 @@ var app = angular.module('myApp', ['ngRoute'])
                 // return profile where id === id
                 var user;
                 $scope.people.map(function (person) {
-                    if (person.id === id) {
+                    if (person.id == id) {
                         user = person;
                     }
                 });
