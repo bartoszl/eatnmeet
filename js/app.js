@@ -165,7 +165,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     cuisine: 'International',
                     description: 'Zlatan will take you for a trip around the world with some of the best international dishes',
                     price: '9',
-                    picture: '/images/event6.jpg'
+                    picture: '/images/event6.png'
                 }];
 
             var filter = document.getElementById('filter');
@@ -181,6 +181,7 @@ var app = angular.module('myApp', ['ngRoute'])
             $scope.eventList = events;
             $scope.people = people;
             $scope.currentUserId = 3;
+
             $scope.eventToAdd = {
                 host_id: $scope.currentUserId
             };
@@ -208,6 +209,27 @@ var app = angular.module('myApp', ['ngRoute'])
                 });
                 return name;
             };
+
+
+            $scope.drawStars = function(host_id) {
+                var inner = "";
+
+                $scope.people.map(function (person) {
+                    if (person.id === host_id) {
+                        var fullStars = person.rating;
+                        var emptyStars = 5-fullStars;
+                        while(fullStars-->0){
+                            inner +=" <i class=\"fa fa-star yellow-star\" aria-hidden=\"true\" ng-click=\"rate(1, event.host_id)\"></i>";
+                        }
+                        while(emptyStars-->0){
+                            inner +=" <i class=\"fa fa-star-o empty-star\" aria-hidden=\"true\" ng-click=\"rate(4, event.host_id)\"></i>";
+                        }
+                    }
+                });
+               return inner;
+            };
+
+
             $scope.getWeekDayName = function (date) {
                 switch (date.getDay()) {
                     case 0:
@@ -262,6 +284,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     return min;
                 }
             };
+
             $scope.rate = function (new_rate, host_id) {
                 $scope.people = $scope.people.map(function (person) {
                     if (person.id === host_id) {
@@ -296,7 +319,6 @@ var app = angular.module('myApp', ['ngRoute'])
                 //$scope.$apply();
             };
         })
-
 
         .controller('WelcomeController', function ($scope, $location) {
             var timer = setTimeout(function () {

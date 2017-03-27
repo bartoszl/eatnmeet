@@ -8,13 +8,9 @@
           <img class="card-img-top img-fluid" src="./{{event.picture}}">
           <div class="card-block">
             <div class="card-title clearfix">
-              <h4 class="float-left" ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id) }} </h4>
-              <span class="float-right" id="rating">
-                <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>
-                <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(2, event.host_id)"></i>
-                <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(3, event.host_id)"></i>
-                <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>
-                <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(5, event.host_id)"></i>
+
+              <h4 class="float-left"  ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id) }} </h4>
+              <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
               </span>
             </div>
             <div class="card-subtitle clearfix">
