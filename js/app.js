@@ -1,31 +1,30 @@
 "use strict";
-
 var app = angular.module('myApp', ['ngRoute'])
-  .config(function($routeProvider){
-    $routeProvider
-    .when("/", {
-      templateUrl: "welcomePage.html",
-      controller: "WelcomeController"
-    })
-    .when('/eat-or-cook', {
-      templateUrl: "cookingOrHungry.html",
-      controller: "CookOrHungryController"
-    })
-    .when('/event-list', {
-      templateUrl: "list.html",
-      controller: "EventsController"
-    })
-    .when('/event-form', {
-      templateUrl: "NewEvent.html",
-        controller: "EventsController"
-    })
-    .when('/profile/:id', {
-      templateUrl: "profile.html",
-      controller: "EventsController"
-    })
-    ;
-  })
-  .controller('EventsController', function($scope, $routeParams) {
+        .config(function ($routeProvider) {
+            $routeProvider
+                    .when("/", {
+                        templateUrl: "welcomePage.html",
+                        controller: "WelcomeController"
+                    })
+                    .when('/eat-or-cook', {
+                        templateUrl: "cookingOrHungry.html",
+                        controller: "CookOrHungryController"
+                    })
+                    .when('/event-list', {
+                        templateUrl: "list.html",
+                        controller: "EventsController"
+                    })
+                    .when('/event-form', {
+                        templateUrl: "NewEvent.html",
+                        controller: "EventsController"
+                    })
+                    .when('/profile/:id', {
+                        templateUrl: "profile.html",
+                        controller: "EventsController"
+                    })
+                    ;
+        })
+        .controller('EventsController', function ($scope, $routeParams) {
             var people = [{
                     id: 3,
                     name: "Zlatan",
@@ -97,7 +96,6 @@ var app = angular.module('myApp', ['ngRoute'])
                     visited_events_id: [1],
                     profile_image: "/images/profile2.jpg"
                 }];
-
             var events = [{
                     id: 0,
                     host_id: 0,
@@ -169,51 +167,27 @@ var app = angular.module('myApp', ['ngRoute'])
                     price: '9',
                     picture: '/images/event6.jpg'
                 }];
-
             $scope.eventList = events;
             $scope.people = people;
             $scope.currentUserId = 3;
-
-<<<<<<< HEAD
-    $scope.eventToAdd = {
-        host_id: $scope.currentUserId 
-     };
-
-     $scope.addEvent = function(eventToAdd) {
-        $scope.eventList.push(angular.copy($scope.eventToAdd));
-    };
-    
-    $scope.getUserById = function() {
-        var id = $routeParams.id;
-        // for loop through all profiles
-        // return profile where id === id
-        var user;
-        $scope.people.map(function(person) {
-            if (person.id == id ){
-                user = person;
-            }
-        });     
-        return user;
-    };
-    
-    $scope.getNameForEvent = function(host_id) {
-      var name = "";
-      $scope.people.map(function(person){
-        if(person.id === host_id) {
-          name = person.name;
-        }
-      });
-      return name;
-    };
-=======
             $scope.eventToAdd = {
                 host_id: $scope.currentUserId
             };
-
             $scope.addEvent = function (eventToAdd) {
                 $scope.eventList.push(angular.copy($scope.eventToAdd));
             };
-
+            $scope.getUserById = function () {
+                var id = $routeParams.id;
+                // for loop through all profiles
+                // return profile where id === id
+                var user;
+                $scope.people.map(function (person) {
+                    if (person.id === id) {
+                        user = person;
+                    }
+                });
+                return user;
+            };
             $scope.getNameForEvent = function (host_id) {
                 var name = "";
                 $scope.people.map(function (person) {
@@ -223,49 +197,60 @@ var app = angular.module('myApp', ['ngRoute'])
                 });
                 return name;
             };
-<<<<<<< HEAD
->>>>>>> 96a69de3a374c32fc0f42d9512822305a179ffa1
-=======
-            
             $scope.getWeekDayName = function (date) {
                 switch (date.getDay()) {
-                    case 0: return "Sunday";
-                    case 1: return "Monday";
-                    case 2: return "Tuesday";
-                    case 3: return "Wednesday";
-                    case 4: return "Thurdsay";
-                    case 5: return "Friday";
-                    case 6: return "Saturday";
+                    case 0:
+                        return "Sunday";
+                    case 1:
+                        return "Monday";
+                    case 2:
+                        return "Tuesday";
+                    case 3:
+                        return "Wednesday";
+                    case 4:
+                        return "Thurdsay";
+                    case 5:
+                        return "Friday";
+                    case 6:
+                        return "Saturday";
                 }
             };
-
             $scope.getMonthName = function (date) {
-              switch (date.getMonth()){
-                  case 0: return "January";
-                  case 1: return "February";
-                  case 2: return "March";
-                  case 3: return "April";
-                  case 4: return "May";
-                  case 5: return "June";
-                  case 6: return "July";
-                  case 7: return "August";
-                  case 8: return "September";
-                  case 9: return "October";
-                  case 10: return "November";
-                  case 11: return "December";
-              }
+                switch (date.getMonth()) {
+                    case 0:
+                        return "January";
+                    case 1:
+                        return "February";
+                    case 2:
+                        return "March";
+                    case 3:
+                        return "April";
+                    case 4:
+                        return "May";
+                    case 5:
+                        return "June";
+                    case 6:
+                        return "July";
+                    case 7:
+                        return "August";
+                    case 8:
+                        return "September";
+                    case 9:
+                        return "October";
+                    case 10:
+                        return "November";
+                    case 11:
+                        return "December";
+                }
             };
-            
             $scope.getMinutes = function (date) {
-              var min = date.getMinutes();
-              if (min === 0) {
-                  return "00";
-              } else {
-                  return min;
-              }
+                var min = date.getMinutes();
+                if (min === 0) {
+                    return "00";
+                } else {
+                    return min;
+                }
             };
->>>>>>> 4ba12fde89d48281c8162fe6ad11437f90b0b31e
-
             $scope.rate = function (new_rate, host_id) {
                 $scope.people = $scope.people.map(function (person) {
                     if (person.id === host_id) {
@@ -275,7 +260,6 @@ var app = angular.module('myApp', ['ngRoute'])
                     return person;
                 });
             };
-
             $scope.hostingEvents = function () {
                 events = [];
                 $scope.eventList.forEach(function (event) {
@@ -286,17 +270,6 @@ var app = angular.module('myApp', ['ngRoute'])
                 return events;
             };
 
-<<<<<<< HEAD
-    $scope.goToNewEvent = function() {
-      $location.path('/event-form');
-      //$scope.$apply();
-    }; 
-    $scope.goToProfile = function(id) {
-        $location.path('/profile/'+id);
-        //$scope.$apply();
-    };
-  });
-=======
             $scope.eventDetails = function (event) {
                 details = [];
                 details.push(event.date);
@@ -306,8 +279,9 @@ var app = angular.module('myApp', ['ngRoute'])
                 details.push(event.description);
                 details.push(event.price);
             };
-
         })
+
+
         .controller('WelcomeController', function ($scope, $location) {
             var timer = setTimeout(function () {
                 $location.path('/eat-or-cook');
@@ -319,16 +293,12 @@ var app = angular.module('myApp', ['ngRoute'])
                 $location.path('/event-list');
                 //$scope.$apply();
             };
-
             $scope.goToNewEvent = function () {
                 $location.path('/event-form');
                 //$scope.$apply();
             };
-        })
-        .controller('ProfileController', function ($scope, $location) {
-            $scope.goToProfile = function () {
-                $location.path('/profile');
-                //$scope.apply();
+            $scope.goToProfile = function(id) {
+                $location.path('/profile/'+id);
+                //$scope.$apply();
             };
         });
->>>>>>> 96a69de3a374c32fc0f42d9512822305a179ffa1
