@@ -111,7 +111,17 @@ h1{
     text-align: center;
 }
 
+h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
 #newEventHeader, #upcomingEventsHeader {
     margin-top: 60px;
 }
+
+.eventDescription {
+    padding-left: 3rem;
+}
+
 /*Scott End*/

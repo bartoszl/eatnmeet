@@ -4,27 +4,67 @@
     <div class="container-fluid">
 
         <eat-navbar></eat-navbar>
-        
-        <div id="upcomingEventsHeader">
-            <h1>Upcoming Events</h1>
-        </div>
 
-        <div ng-repeat="event in hostingEvents()" class="row">
-            <div class="col">
-                <div ng-repeat="info in eventDetails(event)" class="row">
-                    <div class="col">
-                        <span>{{info}}</span>
+        <div id="upcomingEventsHeader">
+            <h1>You are hosting:</h1>
+        </div>
+        
+        <hr/>
+        
+        <div ng-repeat="event in hostingEvents()">
+            
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        Date: {{getWeekDayName(event.date)}}, {{event.date.getDate()}} {{getMonthName(event.date)}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        Time: {{event.date.getHours()}}{{getMinutes(event.date)}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        Street: {{event.street}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        City: {{event.city}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        Cuisine: {{event.cuisine}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="eventDescription">
+                        Description: {{event.description}}
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col">
-                <span> Testing upcomingEvents </span>
+            <div class="row">
+                <div class="col">
+                    <span class="eventDescription">
+                        Price: {{event.price}}
+                    </span>
+                </div>
             </div>
+            <hr/>
         </div>
-        
+
     </div>
-    
+
 </body>
