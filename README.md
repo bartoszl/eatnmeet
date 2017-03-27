@@ -4,7 +4,7 @@
 
 * Scott -> Navbar (directive),
 
-* Bartek -> Directives events
+* Bartek -> Directives events, SASS
 
 * Norbert -> Database profiles, events,
 
