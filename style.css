@@ -111,7 +111,7 @@ h1{
     text-align: center;
 }
 
-#newEventHeader {
+#newEventHeader, #upcomingEventsHeader {
     margin-top: 60px;
 }
 /*Scott End*/
