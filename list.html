@@ -26,10 +26,10 @@
     <div class="col-xs-12">
       <div ng-repeat="event in eventList">
         <div class="card food-item">
-          <img class="card-img-top img-fluid" src="{{event.picture}}">
+          <img class="card-img-top img-fluid" src="./{{event.picture}}">
           <div class="card-block">
             <div class="card-title clearfix">
-              <h4 class="float-left"> {{ getNameForEvent(event.host_id) }} </h4>
+              <h4 class="float-left" ng-click="{{ goToProfile(event.host_id) }}"> {{ getNameForEvent(event.host_id) }} </h4>
               <span class="float-right" id="rating">
                 <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>
                 <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(2, event.host_id)"></i>

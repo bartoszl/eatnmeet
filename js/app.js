@@ -25,7 +25,7 @@ var app = angular.module('myApp', ['ngRoute'])
     })
     ;
   })
-  .controller('EventsController', function($scope) {
+  .controller('EventsController', function($scope, $routeParams) {
 
       var people = [{
           id: 3,
@@ -175,14 +175,27 @@ var app = angular.module('myApp', ['ngRoute'])
     $scope.people = people;
     $scope.currentUserId = 3;
 
-      $scope.eventToAdd = {
-         host_id: $scope.currentUserId 
-      };
+    $scope.eventToAdd = {
+        host_id: $scope.currentUserId 
+     };
 
-      $scope.addEvent = function(eventToAdd) {
-         $scope.eventList.push(angular.copy($scope.eventToAdd));
-	};
-
+     $scope.addEvent = function(eventToAdd) {
+        $scope.eventList.push(angular.copy($scope.eventToAdd));
+    };
+    
+    $scope.getUserById = function() {
+        var id = $routeParams.id;
+        // for loop through all profiles
+        // return profile where id === id
+        var user;
+        $scope.people.map(function(person) {
+            if (person.id == id ){
+                user = person;
+            }
+        });     
+        return user;
+    };
+    
     $scope.getNameForEvent = function(host_id) {
       var name = "";
       $scope.people.map(function(person){
@@ -219,11 +232,9 @@ var app = angular.module('myApp', ['ngRoute'])
     $scope.goToNewEvent = function() {
       $location.path('/event-form');
       //$scope.$apply();
-    };   
-  })
-  .controller('ProfileController', function($scope, $location) {
-      $scope.goToProfile = function() {
-        $location.path('/profile');
-        //$scope.apply();
-      };
+    }; 
+    $scope.goToProfile = function(id) {
+        $location.path('/profile/'+id);
+        //$scope.$apply();
+    };
   });
