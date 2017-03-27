@@ -1,5 +1,18 @@
 # Eat 'N Meet
 
+#Tasks - 28.03.
+
+1. Stars/rating on even list (Ksenia)
+2. Add go back button to navbar
+3. add links to navbar 
+4. list of events you're attending
+5. add link to events you're hosting
+6. add sth to the map
+7. finishing creating new event
+8. eventPage -> when clicking on the event pic
+9. filters and sorting
+10. sliding welcome page (Ksenia)
+
 #TASKS
 
 * Scott -> Navbar (directive),
