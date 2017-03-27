@@ -7,8 +7,8 @@
 3. add links to navbar 
 4. list of events you're attending
 5. add link to events you're hosting
-6. add sth to the map
-7. finishing creating new event
+6. add sth to the map (Norbert)
+7. finishing creating new event (Norbert)
 8. eventPage -> when clicking on the event pic
 9. filters and sorting
 10. sliding welcome page (Ksenia)
