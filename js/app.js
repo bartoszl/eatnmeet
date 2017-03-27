@@ -16,6 +16,10 @@ var app = angular.module('myApp', ["ngRoute"])
     })
     .when('/event-form', {
       templateUrl: "NewEvent.html"
+    })
+    .when('/upcoming-events', {
+      templateUrl: "upcomingEvents.html",
+      controller: "EventsController"
     });
   })
   .controller('EventsController', function($scope) {
@@ -137,6 +141,26 @@ var app = angular.module('myApp', ["ngRoute"])
         return person;
       });
     };
+    
+    $scope.hostingEvents = function() {
+        events = [];
+        $scope.eventList.forEach(function(event) {
+            if (event.host_id === $scope.currentUserId) {
+                events.push(event);
+            }
+        });
+        return events;
+    };
+    
+    $scope.eventDetails = function(event) {
+        details = [];
+        details.push(event.date);
+        details.push(event.street);
+        details.push(event.city);
+        details.push(event.cuisine);
+        details.push(event.description);
+        details.push(event.price);
+    }
 
   })
   .controller('WelcomeController', function($scope, $location) {

@@ -1,0 +1,26 @@
+
+<body>
+
+    <div class="container-fluid">
+
+        <eat-navbar></eat-navbar>
+
+        <div ng-repeat="event in hostingEvents()" class="row">
+            <div class="col">
+                <div ng-repeat="info in eventDetails(event)" class="row">
+                    <div class="col">
+                        <span>{{info}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <span> Testing upcomingEvents </span>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
