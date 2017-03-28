@@ -9,7 +9,7 @@
 5. add link to events you're hosting
 6. add sth to the map (Norbert)
 7. finishing creating new event (Norbert)
-8. eventPage -> when clicking on the event pic
+8. eventPage -> when clicking on the event pic (Christos)
 9. filters and sorting (Bart)
 10. sliding welcome page (Ksenia)
 

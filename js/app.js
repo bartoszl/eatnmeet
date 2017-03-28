@@ -22,7 +22,10 @@ var app = angular.module('myApp', ['ngRoute'])
                         templateUrl: "profile.html",
                         controller: "EventsController"
                     })
-                    ;
+                    .when('/event/:id', {
+                        templateUrl: "event.html",
+                        controller: "EventsController"
+                    });
         })
         .controller('EventsController', function ($scope, $routeParams, $location) {
             var people = [{
@@ -200,6 +203,17 @@ var app = angular.module('myApp', ['ngRoute'])
                 });
                 return user;
             };
+            $scope.getEventById = function () {
+                var id = $routeParams.id;
+                var ev;
+                $scope.eventList.map(function (event) {
+                    if (event.id == id) {
+                        ev = event;
+                    }
+                });
+                console.log(ev);
+                return ev;
+            };
             $scope.getNameForEvent = function (host_id) {
                 var name = "";
                 $scope.people.map(function (person) {
@@ -316,6 +330,10 @@ var app = angular.module('myApp', ['ngRoute'])
 
             $scope.goToProfile = function(id) {
                 $location.path('/profile/'+id);
+                //$scope.$apply();
+            };
+            $scope.goToEvent = function(id) {
+                $location.path('/event/'+id);
                 //$scope.$apply();
             };
         })
