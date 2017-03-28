@@ -24,6 +24,10 @@ var app = angular.module('myApp', ['ngRoute'])
                     })
                     .when('/event/:id', {
                         templateUrl: "event.html",
+                        controller: "EventsController",
+                    })
+                    .when('/map', {
+                        templateUrl: "map.html",
                         controller: "EventsController"
                     });
         })
@@ -185,11 +189,49 @@ var app = angular.module('myApp', ['ngRoute'])
             $scope.people = people;
             $scope.currentUserId = 3;
 
+
+
+
             $scope.eventToAdd = {
-                host_id: $scope.currentUserId
+                id: 7,
+                host_id: 2,
+                date: "Date",
+                street: "Street name",
+                city: 'Glasgow',
+                cuisine: 'Cuisine type',
+                description: 'Description',
+                price: 'price',
+                picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
-                $scope.eventList.push(angular.copy($scope.eventToAdd));
+                //$scope.eventList.push(angular.copy(eventToAdd));
+                events.push({
+                    id: $scope.eventToAdd.id,
+                    host_id: $scope.eventToAdd.host_id,
+                    date: $scope.eventToAdd.date,
+                    street: $scope.eventToAdd.street,
+                    city: $scope.eventToAdd.city,
+                    cuisine: $scope.eventToAdd.cuisine,
+                    description: $scope.eventToAdd.description,
+                    price: $scope.eventToAdd.price,
+                    picture: '/images/event6.png'
+                })
+                console.log("added");
+                $scope.saveEvents();
+                $location.path('/event-list');
+
+            };
+
+            $scope.saveEvents = function (){
+                localStorage.events = angular.toJson(events);
+                console.log("Save");
+            };
+
+            $scope.loadEvents = function () {
+                events = angular.fromJson(localStorage.events);
+                $scope.eventList = events;
+                console.log("Load");
+
             };
             $scope.getUserById = function () {
                 var id = $routeParams.id;
@@ -332,7 +374,9 @@ var app = angular.module('myApp', ['ngRoute'])
                 //$scope.$apply();
             };
             $scope.goToEvent = function(id) {
+
                 $location.path('/event/'+id);
+                $scope.loadEvents();
                 //$scope.$apply();
             };
         })
