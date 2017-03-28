@@ -211,7 +211,6 @@ var app = angular.module('myApp', ['ngRoute'])
                         ev = event;
                     }
                 });
-                console.log(ev);
                 return ev;
             };
             $scope.getNameForEvent = function (host_id) {
