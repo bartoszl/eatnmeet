@@ -24,15 +24,15 @@ var app = angular.module('myApp', ['ngRoute'])
                     })
                     .when('/event/:id', {
                         templateUrl: "event.html",
-                        controller: "EventsController",
+                        controller: "EventsController"
                     })
                     .when('/hosting-events', {
                         templateUrl: "hostingEvents.html",
-                        controller: "EventsController",
+                        controller: "EventsController"
                     })
                     .when('/attending-events', {
                         templateUrl: "attendingEvents.html",
-                        controller: "EventsController",
+                        controller: "EventsController"
                     })
                     .when('/map', {
                         templateUrl: "map.html",
