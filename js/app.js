@@ -30,6 +30,10 @@ var app = angular.module('myApp', ['ngRoute'])
                         templateUrl: "hostingEvents.html",
                         controller: "EventsController",
                     })
+                    .when('/attending-events', {
+                        templateUrl: "attendingEvents.html",
+                        controller: "EventsController",
+                    })
                     .when('/map', {
                         templateUrl: "map.html",
                         controller: "EventsController"
@@ -353,6 +357,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     return person;
                 });
             };
+            
             $scope.hostingEvents = function () {
                 events = [];
                 $scope.eventList.forEach(function (event) {
@@ -361,6 +366,22 @@ var app = angular.module('myApp', ['ngRoute'])
                     }
                 });
                 return events;
+            };
+            
+            $scope.attendingEvents = function () {
+                events = [];
+                $scope.people.forEach(function (person) {
+                    if (person.id === $scope.currentUserId) {
+                        person.upcoming_event_id.forEach(function (event_id) {
+                            $scope.eventList.forEach(function (event) {
+                                if (event.id === event_id) {
+                                    events.push(event);
+                                }
+                            });
+                        });
+                        return events;
+                    }
+                });
             };
 
             $scope.eventDetails = function (event) {
