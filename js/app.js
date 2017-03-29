@@ -26,6 +26,10 @@ var app = angular.module('myApp', ['ngRoute'])
                         templateUrl: "event.html",
                         controller: "EventsController",
                     })
+                    .when('/hosting-events', {
+                        templateUrl: "hostingEvents.html",
+                        controller: "EventsController",
+                    })
                     .when('/map', {
                         templateUrl: "map.html",
                         controller: "EventsController"
