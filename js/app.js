@@ -67,7 +67,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 }, {
                     id: 0,
                     name: "Daniel",
-                    description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+                    description: "Yooo! I am from Hungary and I always love to eat with other people. I am a good cook! Stay tuned for my recent events.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -77,7 +77,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 }, {
                     id: 5,
                     name: "Robert",
-                    description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+                    description: "Welcome to my profile page! I am from England and I will be hosting many great meals in the future. Don't miss any of them.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -87,7 +87,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 }, {
                     id: 6,
                     name: "Emma",
-                    description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+                    description: " I just created my new profile! I am from Argentina and I will be hosting many local meals in the future. Have a nice day!",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -97,7 +97,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 }, {
                     id: 4,
                     name: "Eva",
-                    description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+                    description: "Hello there! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted. Don't miss any of them!",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -107,7 +107,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 }, {
                     id: 2,
                     name: "Margot",
-                    description: "Welcome to my profile page! I am from Australia and I will be hosting many Italian meals in the future (even if I am from Australia). Don't miss any of it.",
+                    description: "Hey! I am from Australia and I will be hosting many Italian meals in the future (even if I am from Australia). Don't miss any of it.",
                     rating: 3,
                     no_rates: 5,
                     city: "Glasgow",
@@ -142,7 +142,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                     street: '13 George Street',
                     city: 'Glasgow',
                     cuisine: 'Swedish',
-                    description: 'Come and taste traditional Zlatans meatballs. You will definitely thank me later.',
+                    description: 'Come and taste my traditional meatballs. You will definitely thank me later.',
                     price: '8',
                     picture: '/images/event2.jpg'
                 }, {
@@ -182,7 +182,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                     street: '13 George Street',
                     city: 'Glasgow',
                     cuisine: 'International',
-                    description: 'Zlatan will take you for a trip around the world with some of the best international dishes',
+                    description: 'I will take you for a trip around the world with some of the best international dishes. All welcome',
                     price: '9',
                     picture: '/images/event6.png'
                 }];
