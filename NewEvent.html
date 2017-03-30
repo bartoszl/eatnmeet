@@ -24,7 +24,9 @@
                     </div>
                     <div class="form-group">
                         <label for="inputEventTime">Event Time</label>
-                        <input type="text" class="form-control" id="inputEventTime" placeholder="12:00..." >
+                        <input class="form-control" id="inputEventTime" type="time" id="sampleInput" name="input" ng-model="sample.value"
+                               placeholder="18:00:00" min="00:00:00" max="24:00:00" required />
+
                     </div>
                     <div class="form-group">
                         <label for="inputEventDate">Event Date</label>
