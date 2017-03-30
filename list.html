@@ -4,20 +4,27 @@
   <div class="row">
     <div class="col-xs-12">
       <div ng-repeat="event in eventList">
-        <div class="card food-item">
-          <img class="card-img-top img-fluid" src="./{{event.picture}}">
+        <div class="card food-item">{{loadEvents()}}
+          <img class="card-img-top img-fluid" ng-click="goToEvent(event.id)" src="./{{event.picture}}">
           <div class="card-block">
             <div class="card-title clearfix">
+<<<<<<< HEAD
               <h4 class="float-left"> {{ getNameForEvent(event.host_id) }} </h4>
               <div class="float-right" ng-bind-html="drawStars(event.host_id)">  <!--  {{drawStars(event.host_id)}} -->
                  
               </div>
+=======
+
+              <h4 class="float-left"  ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id) }} </h4>
+              <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
+              </span>
+>>>>>>> 1027c7b8b1e18f29dae97a6f5d83070875d822ba
             </div>
-            <div class="card-subtitle clearfix">
+            <div class="card-subtitle clearfix" ng-click="goToEvent(event.id)">
               <h6 class="mb-2 text-muted float-left">{{ event.cuisine }}</h6>
               <h6 class="float-right"> Entry : {{ event.price }} $</h6>
             </div>
-            <p class="card-text">
+            <p class="card-text" ng-click="goToEvent(event.id)">
               {{ event.description }}
             </p>
           </div>

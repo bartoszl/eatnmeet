@@ -22,9 +22,24 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                         templateUrl: "profile.html",
                         controller: "EventsController"
                     })
-                    ;
+                    .when('/event/:id', {
+                        templateUrl: "event.html",
+                        controller: "EventsController"
+                    })
+                    .when('/hosting-events', {
+                        templateUrl: "hostingEvents.html",
+                        controller: "EventsController"
+                    })
+                    .when('/attending-events', {
+                        templateUrl: "attendingEvents.html",
+                        controller: "EventsController"
+                    })
+                    .when('/map', {
+                        templateUrl: "map.html",
+                        controller: "EventsController"
+                    });
         })
-        .controller('EventsController', function ($scope, $routeParams) {
+        .controller('EventsController', function ($scope, $routeParams, $location) {
             var people = [{
                     id: 3,
                     name: "Zlatan",
@@ -181,12 +196,50 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
             $scope.eventList = events;
             $scope.people = people;
             $scope.currentUserId = 3;
-            
+
+
+
+
             $scope.eventToAdd = {
-                host_id: $scope.currentUserId
+                id: 7,
+                host_id: 2,
+                date: "Date",
+                street: "Street name",
+                city: 'Glasgow',
+                cuisine: 'Cuisine type',
+                description: 'Description',
+                price: 'price',
+                picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
-                $scope.eventList.push(angular.copy($scope.eventToAdd));
+                //$scope.eventList.push(angular.copy(eventToAdd));
+                events.push({
+                    id: $scope.eventToAdd.id,
+                    host_id: $scope.eventToAdd.host_id,
+                    date: $scope.eventToAdd.date,
+                    street: $scope.eventToAdd.street,
+                    city: $scope.eventToAdd.city,
+                    cuisine: $scope.eventToAdd.cuisine,
+                    description: $scope.eventToAdd.description,
+                    price: $scope.eventToAdd.price,
+                    picture: '/images/event6.png'
+                })
+                console.log("added");
+                $scope.saveEvents();
+                $location.path('/event-list');
+
+            };
+
+            $scope.saveEvents = function (){
+                localStorage.events = angular.toJson(events);
+                console.log("Save");
+            };
+
+            $scope.loadEvents = function () {
+                events = angular.fromJson(localStorage.events);
+                $scope.eventList = events;
+                console.log("Load");
+
             };
             $scope.getUserById = function () {
                 var id = $routeParams.id;
@@ -199,6 +252,16 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     }
                 });
                 return user;
+            };
+            $scope.getEventById = function () {
+                var id = $routeParams.id;
+                var ev;
+                $scope.eventList.map(function (event) {
+                    if (event.id == id) {
+                        ev = event;
+                    }
+                });
+                return ev;
             };
             $scope.getNameForEvent = function (host_id) {
                 var name = "";
@@ -219,6 +282,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                         var emptyStars = 5-fullStars;
                         while(fullStars-->0){
                             inner +=' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>'; 
+
                         }
                         while(emptyStars-->0){
                             inner +=' <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>';
@@ -283,7 +347,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     return min;
                 }
             };
-            
+
             $scope.rate = function (new_rate, host_id) {
                 $scope.people = $scope.people.map(function (person) {
                     if (person.id === host_id) {
@@ -293,6 +357,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     return person;
                 });
             };
+            
             $scope.hostingEvents = function () {
                 events = [];
                 $scope.eventList.forEach(function (event) {
@@ -301,6 +366,22 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     }
                 });
                 return events;
+            };
+            
+            $scope.attendingEvents = function () {
+                events = [];
+                $scope.people.forEach(function (person) {
+                    if (person.id === $scope.currentUserId) {
+                        person.upcoming_event_id.forEach(function (event_id) {
+                            $scope.eventList.forEach(function (event) {
+                                if (event.id === event_id) {
+                                    events.push(event);
+                                }
+                            });
+                        });
+                        return events;
+                    }
+                });
             };
 
             $scope.eventDetails = function (event) {
@@ -311,6 +392,17 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 details.push(event.cuisine);
                 details.push(event.description);
                 details.push(event.price);
+            };
+
+            $scope.goToProfile = function(id) {
+                $location.path('/profile/'+id);
+                //$scope.$apply();
+            };
+            $scope.goToEvent = function(id) {
+
+                $location.path('/event/'+id);
+                $scope.loadEvents();
+                //$scope.$apply();
             };
         })
 
@@ -327,10 +419,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
             };
             $scope.goToNewEvent = function () {
                 $location.path('/event-form');
-                //$scope.$apply();
-            };
-            $scope.goToProfile = function(id) {
-                $location.path('/profile/'+id);
                 //$scope.$apply();
             };
         });

@@ -5,12 +5,44 @@
 
         <eat-navbar></eat-navbar>
 
-        <div id="upcomingEventsHeader">
+        <div id="hostingEventsHeader">
             <h1>You are hosting:</h1>
         </div>
-        
+
         <hr/>
-        
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="event in hostingEvents()">
+                        <div class="card food-item">{{loadEvents()}}
+                            <img class="card-img-top img-fluid" ng-click="goToEvent(event.id)" src="./{{event.picture}}">
+                            <div class="card-block">
+                                <div class="card-title clearfix">
+
+                                    <h4 class="float-left"  ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id)}} </h4>
+                                    <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
+                                    </span>
+                                </div>
+                                <div class="card-subtitle clearfix" ng-click="goToEvent(event.id)">
+                                    <h6 class="mb-2 text-muted float-left">{{ event.cuisine}}</h6>
+                                    <h6 class="float-right"> Entry : {{ event.price}} $</h6>
+                                </div>
+                                <p class="card-text" ng-click="goToEvent(event.id)">
+                                    {{ event.description}}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted 3 mins ago...</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
         <div ng-repeat="event in hostingEvents()">
             
             <div class="row">
@@ -64,6 +96,8 @@
             </div>
             <hr/>
         </div>
+        
+        -->
 
     </div>
 
