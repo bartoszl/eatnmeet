@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module('myApp', ['ngRoute'])
+var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
         .config(function ($routeProvider) {
             $routeProvider
                     .when("/", {
@@ -188,7 +188,7 @@ var app = angular.module('myApp', ['ngRoute'])
                 }];
 
             var filter = document.getElementById('filter');
-
+            
             $scope.toggleFilter = function() {
               if(!filter.classList.contains("show")) {
                 filter.classList.add("show");
@@ -277,23 +277,23 @@ var app = angular.module('myApp', ['ngRoute'])
                 return name;
             };
 
-
+           
             $scope.drawStars = function(host_id) {
                 var inner = "";
-
                 $scope.people.map(function (person) {
                     if (person.id === host_id) {
                         var fullStars = person.rating;
                         var emptyStars = 5-fullStars;
                         while(fullStars-->0){
-                            inner +=" <i class=\"fa fa-star yellow-star\" aria-hidden=\"true\" ng-click=\"rate(1, event.host_id)\"></i>";
+                            inner +=' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>'; 
+
                         }
                         while(emptyStars-->0){
-                            inner +=" <i class=\"fa fa-star-o empty-star\" aria-hidden=\"true\" ng-click=\"rate(4, event.host_id)\"></i>";
+                            inner +=' <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>';
                         }
                     }
-                });
-               return inner;
+                });              
+            return inner;
             };
 
 
