@@ -4,8 +4,9 @@
     <div class="container-fluid">
 
         <eat-navbar></eat-navbar>
+
         <div id="hostingEventsHeader">
-            <h2>My events</h2>
+            <h1>You are hosting:</h1>
         </div>
 
         <hr/>
@@ -20,7 +21,7 @@
                                 <div class="card-title clearfix">
 
                                     <h4 class="float-left"  ng-click="goToProfile(event.host_id)"> {{ getNameForEvent(event.host_id)}} </h4>
-                                    <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
+                                    <span class="float-right" ng-bind-html="drawStars(event.host_id)">
                                     </span>
                                 </div>
                                 <div class="card-subtitle clearfix" ng-click="goToEvent(event.id)">
