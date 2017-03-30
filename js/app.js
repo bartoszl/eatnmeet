@@ -197,9 +197,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
               }
             };
 
-            /*if (localStorage.getItem('events') !== null){
+            if (localStorage.getItem('events') !== null){
                 events = angular.fromJson(localStorage.events);
-            }*/
+            }
 
             $scope.eventList = events;
             $scope.people = people;
