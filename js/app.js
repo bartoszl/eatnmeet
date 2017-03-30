@@ -488,6 +488,20 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
               });
               $scope.toggleFilter();
             };
+
+            $scope.sortByDateAsc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return a.date - b.date;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByDateDesc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return b.date - a.date;
+              });
+              $scope.toggleFilter();
+            };
         })
 
         .controller('WelcomeController', function ($scope, $location) {
