@@ -233,7 +233,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 cuisine: 'Cuisine type',
                 description: 'Description',
                 price: 0,
-                picture: '/images/event6.png'
+                picture: '/images/event7.jpg'
             };
 
             $scope.addEvent = function (eventToAdd) {
