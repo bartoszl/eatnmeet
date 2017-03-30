@@ -315,6 +315,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                         return "Saturday";
                 }
             };
+			$scope.getDateName = function (date) {
+                return date.getDate();     
+            };
             $scope.getMonthName = function (date) {
                 switch (date.getMonth()) {
                     case 0:
@@ -350,6 +353,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 } else {
                     return min;
                 }
+            };
+			$scope.getHour = function (date) {
+                return date.getHours();     
             };
 
             $scope.rate = function (new_rate, host_id) {
