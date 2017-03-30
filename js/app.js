@@ -197,9 +197,6 @@ var app = angular.module('myApp', ['ngRoute'])
             $scope.people = people;
             $scope.currentUserId = 3;
 
-
-
-
             $scope.eventToAdd = {
                 id: 7,
                 host_id: 2,
@@ -223,7 +220,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     description: $scope.eventToAdd.description,
                     price: $scope.eventToAdd.price,
                     picture: '/images/event6.png'
-                })
+                });
                 console.log("added");
                 $scope.saveEvents();
                 $location.path('/event-list');
@@ -357,7 +354,7 @@ var app = angular.module('myApp', ['ngRoute'])
                     return person;
                 });
             };
-            
+
             $scope.hostingEvents = function () {
                 events = [];
                 $scope.eventList.forEach(function (event) {
@@ -367,7 +364,7 @@ var app = angular.module('myApp', ['ngRoute'])
                 });
                 return events;
             };
-            
+
             $scope.attendingEvents = function () {
                 events = [];
                 $scope.people.forEach(function (person) {
@@ -403,6 +400,67 @@ var app = angular.module('myApp', ['ngRoute'])
                 $location.path('/event/'+id);
                 $scope.loadEvents();
                 //$scope.$apply();
+            };
+
+            $scope.sortByNameAZ = function() {
+              $scope.eventList.sort(function(a, b) {
+                  var textA = a.DepartmentName.toUpperCase();
+                  var textB = b.DepartmentName.toUpperCase();
+                  return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByPriceDesc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return a.price - b.price;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByPriceAsc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return b.price - a.price;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByRatingDesc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  var a_rating;
+                  people.map(function(person){
+                    if(person.id == a.host_id){
+                      a_rating = person.rating;
+                    }
+                  });
+                  var b_rating;
+                  people.map(function(person){
+                    if(person.id == b.host_id){
+                      b_rating = person.rating;
+                    }
+                  });
+                  return a_rating - b_rating;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByRatingAsc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  var a_rating;
+                  people.map(function(person){
+                    if(person.id == a.host_id){
+                      a_rating = person.rating;
+                    }
+                  });
+                  var b_rating;
+                  people.map(function(person){
+                    if(person.id == b.host_id){
+                      b_rating = person.rating;
+                    }
+                  });
+                  return b_rating - a_rating;
+              });
+              $scope.toggleFilter();
             };
         })
 
