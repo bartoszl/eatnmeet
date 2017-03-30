@@ -197,6 +197,10 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
               }
             };
 
+            /*if (localStorage.getItem('events') !== null){
+                events = angular.fromJson(localStorage.events);
+            }*/
+
             $scope.eventList = events;
             $scope.people = people;
             $scope.currentUserId = 3;
@@ -237,9 +241,8 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
             };
 
             $scope.loadEvents = function () {
-                events = angular.fromJson(localStorage.events);
-                $scope.eventList = events;
-                console.log("Load");
+                return angular.fromJson(localStorage.events);
+
 
             };
             $scope.getUserById = function () {
