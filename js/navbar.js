@@ -53,6 +53,11 @@ app.component("eatNavbar",{
                 window.history.back();
             };
             
+         
+           $scope.goToAllEvents = function () {
+                 $location.path('/event-list');
+                $scope.toggleNavbar();
+            };  
            
 
       }
