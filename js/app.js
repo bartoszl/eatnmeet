@@ -422,7 +422,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
             };
 
             $scope.goToProfile = function(id) {
-                console.log('clicked');
                 $location.path('/profile/'+id);
                 //$scope.$apply();
             };
