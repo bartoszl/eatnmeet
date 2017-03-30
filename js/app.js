@@ -427,13 +427,14 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             };
 
             $scope.usersEvent = function (id) {
+                $scope.uE = false;
                 $scope.eventList.forEach(function (ev) {
-                    if (ev.id === id){
+                    if (ev.id == id){
                         if (ev.host_id === 3){
-                            return true;
-                        } else return false;
+                            $scope.uE = true;
+                        }
                     }
-                });
+                });return $scope.uE;
             };
 
 
