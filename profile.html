@@ -7,7 +7,6 @@
                     </div>
                     <div class="col-xs-6">
                             <p class="h2 ml-4">{{getUserById().name}}</p>
-							<p class="ml-4" ng-bind-html="drawStars(getUserById().id)"></p>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -15,8 +14,8 @@
                             <p class="h4 text-center">Personal Details</p>
                             <table><tr >
                                 <td><h6 class="ml-3">Rating:</h6></td>
-                                <td><h6>{{getUserById().rating}}/5</h6>
-								</td></tr><tr>
+                                <td><h6 ng-bind-html="drawStars(getUserById().id)"></h6>
+								</td><td><h6 class="ml-1">{{getUserById().rating}}/5</h6></td></tr><tr>
                                 <td><h6 class="ml-3">No. Rates:</h6></td>
                                 <td><h6>{{getUserById().no_rates}}</h6></td>
                                 </tr><tr>
