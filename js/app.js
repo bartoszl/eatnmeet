@@ -360,7 +360,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                     }
                     return person;
                 });
-                console.log("asd");
             };
 
             $scope.hostingEvents = function () {
