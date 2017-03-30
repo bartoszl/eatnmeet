@@ -188,7 +188,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 }];
 
             var filter = document.getElementById('filter');
-            
+
             $scope.toggleFilter = function() {
               if(!filter.classList.contains("show")) {
                 filter.classList.add("show");
@@ -277,7 +277,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 return name;
             };
 
-           
+
             $scope.drawStars = function(host_id) {
                 var inner = "";
                 $scope.people.map(function (person) {
@@ -285,14 +285,14 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                         var fullStars = person.rating;
                         var emptyStars = 5-fullStars;
                         while(fullStars-->0){
-                            inner +=' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>'; 
+                            inner +=' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>';
 
                         }
                         while(emptyStars-->0){
                             inner +=' <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>';
                         }
                     }
-                });              
+                });
             return inner;
             };
 
@@ -360,6 +360,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     }
                     return person;
                 });
+                console.log("asd");
             };
 
             $scope.hostingEvents = function () {
@@ -387,9 +388,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 });
                 return events;
             };
-            
-            
-            
+
+
+
             $scope.previousEvents = function () {
                 events = [];
                 $scope.people.forEach(function (person) {
@@ -484,6 +485,20 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     }
                   });
                   return b_rating - a_rating;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByDateAsc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return a.date - b.date;
+              });
+              $scope.toggleFilter();
+            };
+
+            $scope.sortByDateDesc = function() {
+              $scope.eventList.sort(function(a, b) {
+                  return b.date - a.date;
               });
               $scope.toggleFilter();
             };
