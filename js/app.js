@@ -51,7 +51,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                     rating: 5,
                     no_rates: 5,
                     city: "Glasgow",
-                    upcoming_event_id: [5],
+                    upcoming_event_id: [3],
                     visited_events_id: [2],
                     profile_image: "/images/profile3.jpg"
                 }, {
@@ -206,8 +206,8 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
             $scope.currentUserId = 3;
 
             $scope.eventToAdd = {
-                id: 7,
-                host_id: 2,
+                id: events.length,
+                host_id: 3,
                 date: "Date",
                 street: "Street name",
                 city: 'Glasgow',
@@ -217,7 +217,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
-                //$scope.eventList.push(angular.copy(eventToAdd));
+                
                 events.push({
                     id: $scope.eventToAdd.id,
                     host_id: $scope.eventToAdd.host_id,
@@ -417,7 +417,13 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                 details.push(event.price);
             };
 
+            $scope.getIdFromUrl = function() {
+              console.log($routeParams.id);
+              return $routeParams.id;
+            };
+
             $scope.goToProfile = function(id) {
+                console.log('clicked');
                 $location.path('/profile/'+id);
                 //$scope.$apply();
             };
