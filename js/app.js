@@ -40,7 +40,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     })
                     .when('/map', {
                         templateUrl: "map.html",
-                        controller: "EventsController"
+                        controller: "MapController"
                     });
         })
         .controller('EventsController', function ($scope, $routeParams, $location) {
@@ -217,7 +217,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
-                
+
                 events.push({
                     id: $scope.eventToAdd.id,
                     host_id: $scope.eventToAdd.host_id,
@@ -525,4 +525,45 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 $location.path('/event-form');
                 //$scope.$apply();
             };
+        })
+        .controller('MapController', function($scope, $location) {
+          function initMap() {
+              var glasgow = {lat: 55.864, lng: -4.251};
+              var map = document.getElementById('map');
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: glasgow,
+                  streetViewControl: false,
+                  fullscreenControl: false,
+                  mapTypeControl: false,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+              });
+              var image = 'images/bluedot.png';
+
+
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function (position) {
+                      var pos = {
+                          lat: position.coords.latitude,
+                          lng: position.coords.longitude
+                      };
+                      map.setCenter(pos);
+                      var marker = new google.maps.Marker({
+                          position: pos,
+                          map: map,
+                          icon: image
+                      });
+                      var pos2 = pos;
+                      pos2.lat = pos2.lat + 0.002;
+                      var marker2 = new google.maps.Marker({
+                          position: pos2,
+                          map: map
+
+                      });
+                  });
+              }
+          };
+
+          initMap();
+
         });
