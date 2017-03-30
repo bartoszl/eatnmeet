@@ -567,6 +567,29 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                           map: map
 
                       });
+                      var pos3 = pos;
+                      pos3.lat = pos3.lat - 0.004;
+                      var marker2 = new google.maps.Marker({
+                          position: pos3,
+                          map: map
+
+                      });
+                      var pos4 = pos;
+                      pos4.lat = pos4.lat + 0.003;
+                      pos4.lng = pos4.lng + 0.002;
+                      var marker2 = new google.maps.Marker({
+                          position: pos4,
+                          map: map
+
+                      });
+                      var pos5 = pos;
+                      pos5.lat = pos5.lat - 0.002;
+                      pos5.lng = pos5.lng - 0.004;
+                      var marker2 = new google.maps.Marker({
+                          position: pos5,
+                          map: map
+
+                      });
                   });
               }
           };
