@@ -5,13 +5,15 @@
 1. Stars/rating on even list (Ksenia)
 2. Add go back button to navbar
 3. add links to navbar
-4. list of events you're attending
-5. add link to events you're hosting
-6. add sth to the map (Norbert)
-7. finishing creating new event (Norbert)
-8. eventPage -> when clicking on the event pic (Christos)
-9. filters and sorting (Bart)
-10. sliding welcome page (Ksenia)
+4. add link to events you're hosting
+5. add sth to the map (Norbert)
+6. finishing creating new event (Norbert)
+7. eventPage -> when clicking on the event pic (Christos)
+8. filters and sorting (Bart)
+9. sliding welcome page (Ksenia)
+10. List of previous events you have attended (Scott)
+11. List of events you're attending (Scott)
+12. List of events you are hosting (Scott)
 
 #TASKS
 
