@@ -247,7 +247,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     cuisine: $scope.eventToAdd.cuisine,
                     description: $scope.eventToAdd.description,
                     price: $scope.eventToAdd.price,
-                    picture: '/images/event6.png'
+                    picture: '/images/event7.jpg'
                 });
                 //events[7].date = new Date(eventsToAdd.date + eventsToAdd.time.)
                 events[events.length - 1].date = new Date(Date.parse($scope.eventToAdd.date) + $scope.eventToAdd.time.getTime());
