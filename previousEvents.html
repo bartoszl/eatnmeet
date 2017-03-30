@@ -6,7 +6,7 @@
         <eat-navbar></eat-navbar>
 
         <div id="hostingEventsHeader">
-            <h1>You are attending:</h1>
+            <h1>Previous Events:</h1>
         </div>
 
         <hr/>
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
-                    <div ng-repeat="event in attendingEvents()">
+                    <div ng-repeat="event in previousEvents()">
                         <div class="card food-item">{{loadEvents()}}
                             <img class="card-img-top img-fluid" ng-click="goToEvent(event.id)" src="./{{event.picture}}">
                             <div class="card-block">
@@ -31,9 +31,6 @@
                                 <p class="card-text" ng-click="goToEvent(event.id)">
                                     {{ event.description}}
                                 </p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Posted 3 mins ago...</small>
                             </div>
                         </div>
 

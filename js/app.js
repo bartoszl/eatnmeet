@@ -34,6 +34,10 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                         templateUrl: "attendingEvents.html",
                         controller: "EventsController"
                     })
+                    .when('/previous-events', {
+                        templateUrl: "previousEvents.html",
+                        controller: "EventsController"
+                    })
                     .when('/map', {
                         templateUrl: "map.html",
                         controller: "EventsController"
@@ -379,9 +383,27 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                                 }
                             });
                         });
-                        return events;
                     }
                 });
+                return events;
+            };
+            
+            
+            
+            $scope.previousEvents = function () {
+                events = [];
+                $scope.people.forEach(function (person) {
+                    if (person.id === $scope.currentUserId) {
+                        person.visited_events_id.forEach(function (event_id) {
+                            $scope.eventList.forEach(function (event) {
+                                if (event.id === event_id) {
+                                    events.push(event);
+                                }
+                            });
+                        });
+                    }
+                });
+                return events;
             };
 
             $scope.eventDetails = function (event) {
