@@ -419,10 +419,12 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 });
                 return events;
             };
-			
-			$scope.addToAttending = function (id) {
-				console.log(id);
-			};
+
+            $scope.addToAttending = function (id) {
+                people[0].upcoming_event_id.push(parseInt(id));
+                localStorage.people = angular.toJson(people);
+                
+            };
 
 
             $scope.previousEvents = function () {
