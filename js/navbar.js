@@ -44,7 +44,9 @@ app.component("eatNavbar",{
                 $scope.toggleNavbar();
             };
             
-            
+          $scope.goBack = function () {
+                window.history.back();
+            };
 
       }
   });

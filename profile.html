@@ -3,7 +3,7 @@
        <div class="container" style="margin-top:5rem"  >
                 <div class="row">
                    <div class="col-xs-6" >
-                            <img class="rounded-circle ml-3" src="./{{getUserById().profile_image}}" alt="profile image" height="128" width="128"/>
+                            <img class="img-thumbnail ml-3" src="./{{getUserById().profile_image}}" alt="profile image" height="128" width="128"/>
                     </div>
                     <div class="col-xs-6">
                             <p class="h2 ml-4">{{getUserById().name}}</p>
@@ -14,8 +14,8 @@
                             <p class="h4 text-center">Personal Details</p>
                             <table><tr >
                                 <td><h6 class="ml-3">Rating:</h6></td>
-                                <td><h6>{{getUserById().rating}}/5.0</h6></td>
-                                </tr><tr>
+                                <td><h6 ng-bind-html="drawStars(getUserById().id)"></h6>
+								</td><td><h6 class="ml-1">{{getUserById().rating}}/5</h6></td></tr><tr>
                                 <td><h6 class="ml-3">No. Rates:</h6></td>
                                 <td><h6>{{getUserById().no_rates}}</h6></td>
                                 </tr><tr>
