@@ -43,10 +43,17 @@ app.component("eatNavbar",{
                 $location.path('/previous-events');
                 $scope.toggleNavbar();
             };
+           
+          $scope.goToMap = function () {
+                $location.path('/map');
+                $scope.toggleNavbar();
+            };
             
           $scope.goBack = function () {
                 window.history.back();
             };
+            
+           
 
       }
   });
