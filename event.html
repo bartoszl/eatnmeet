@@ -27,9 +27,12 @@
                     </div>
                 </div>
 				<div class="row">
-				<div ng-if="usersEvent(getIdFromUrl())==false" class="col-xs-12">
+				    <div ng-if="usersEvent(getIdFromUrl())==false" class="col-xs-12">
 						<button class="btn ml-3" ng-click="addToAttending(getIdFromUrl())" >Join</button>
-					</div>
+                    </div>
+                    <div ng-if="usersEvent(getIdFromUrl())==true" class="col-xs-12">
+                        <button class="btn ml-3" ng-click="deleteEvent(getIdFromUrl())" >Delete</button>
+                    </div>
 				</div>
         </div>
 </div>
