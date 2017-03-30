@@ -220,6 +220,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 price: 0,
                 picture: '/images/event6.png'
             };
+            
             $scope.addEvent = function (eventToAdd) {
 
                 events.push({
@@ -237,6 +238,12 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 $scope.saveEvents();
                 $location.path('/event-list');
 
+            };
+            
+            $scope.updateUserInfo = function () {
+                var location = document.getElementById(userLocation);
+                people[0].city = location.value;
+                console.log("Location was: " + location.value);
             };
 
             $scope.saveEvents = function (){
