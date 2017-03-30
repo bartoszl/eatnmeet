@@ -441,6 +441,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             $scope.deleteEvent = function (id) {
                 events.splice(id, 1);
                 $scope.saveEvents();
+                $location.path('/hosting-events');
             };
 
             $scope.usersEvent = function (id) {
