@@ -38,6 +38,10 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                         templateUrl: "previousEvents.html",
                         controller: "EventsController"
                     })
+                    .when('/edit-profile', {
+                        templateUrl: "editProfile.html",
+                        controller: "EventsController"
+                    })
                     .when('/map', {
                         templateUrl: "map.html",
                         controller: "MapController"
@@ -404,6 +408,11 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
                     }
                 });
                 return events;
+            };
+            
+            $scope.getCurrentUser = function () {
+              return people[0];
+              // Zlatan
             };
 
             $scope.eventDetails = function (event) {
