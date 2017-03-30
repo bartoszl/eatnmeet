@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) 
+var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
         .config(function ($routeProvider) {
             $routeProvider
                     .when("/", {
@@ -208,12 +208,12 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"])
             $scope.eventToAdd = {
                 id: events.length,
                 host_id: 3,
-                date: "Date",
+                date: "Select date",
                 street: "Street name",
                 city: 'Glasgow',
                 cuisine: 'Cuisine type',
                 description: 'Description',
-                price: 'price',
+                price: 0,
                 picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
