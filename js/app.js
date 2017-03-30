@@ -51,7 +51,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                     rating: 5,
                     no_rates: 5,
                     city: "Glasgow",
-                    upcoming_event_id: [5],
+                    upcoming_event_id: [3],
                     visited_events_id: [2],
                     profile_image: "/images/profile3.jpg"
                 }, {
@@ -207,7 +207,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
 
             $scope.eventToAdd = {
                 id: events.length,
-                host_id: 2,
+                host_id: 3,
                 date: "Date",
                 street: "Street name",
                 city: 'Glasgow',
