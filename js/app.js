@@ -61,7 +61,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 1,
                     name: "Chris",
-                    description: "Welcome to my profile page! I am traveler from Seattle and I serve good round the word food.",
+                    description: "Welcome to my profile! I am traveler from Seattle and I serve good - round the world - food.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -71,7 +71,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 0,
                     name: "Daniel",
-                    description: "Yooo! I am from Hungary and I always love to eat with other people. I am a good cook! Stay tuned for my recent events.",
+                    description: "Yooo! I am from England and I always love to eat with other people. I am a good cook! Stay tuned for my recent events.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -81,7 +81,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 5,
                     name: "Robert",
-                    description: "Welcome to my profile page! I am from England and I will be hosting many great meals in the future. Don't miss any of them.",
+                    description: "Welcome to my profile page! I am from Poland and I will be hosting many great meals in the future. Don't miss any of them.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",
@@ -176,7 +176,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     street: '13 George Street',
                     city: 'Glasgow',
                     cuisine: 'International',
-                    description: 'Zlatan will take you for a trip around the world with some of the best international dishes',
+                    description: 'Emma will take you for a trip around the world with some of the best international dishes',
                     price: '9',
                     picture: '/images/event5.jpg'
                 }, {
