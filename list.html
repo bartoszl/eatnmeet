@@ -9,9 +9,9 @@
           <div class="card-block">
             <div class="card-title clearfix">
               <h4 class="float-left"> {{ getNameForEvent(event.host_id) }} </h4>
-              <span class="float-right" ng-bind-html="{{ drawStars(event.host_id)}}">
+              <div class="float-right" ng-bind-html="drawStars(event.host_id)">  <!--  {{drawStars(event.host_id)}} -->
                  
-              </span>
+              </div>
             </div>
             <div class="card-subtitle clearfix">
               <h6 class="mb-2 text-muted float-left">{{ event.cuisine }}</h6>
