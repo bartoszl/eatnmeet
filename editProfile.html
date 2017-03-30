@@ -33,14 +33,14 @@
                             <td><h6 class="ml-3">Location:</h6></td>
                             <td>
                                 <h6>
-                                    <input name="userLocation" type="text" placeholder="{{getCurrentUser().city}}"/>
+                                    <input name="userLocation" type="text" value="{{getCurrentUser().city}}"/>
                                 </h6>
                             </td>
                         </tr>
                     </table>
                     <p class="h4 text-center mt-2">Description</p>
                     <div>
-                        <textarea name="userDescription" style="width:100%" rows="6" placeholder="{{getCurrentUser().description}}"></textarea>
+                        <textarea name="userDescription" style="width:100%" rows="6">{{getCurrentUser().description}}</textarea>
                     </div>
                 </div>
             </div>
