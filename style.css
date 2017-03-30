@@ -69,9 +69,12 @@ and open the template in the editor.
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 6px;
 }
 
+.img-fluid{
+    width:100%;
+    height:auto;
+}
 /*Ksenia Pages End*/
 
 /*Norbert Start*/
@@ -112,6 +115,7 @@ h1{
 h2 {
     font-size: 1.5rem;
     font-weight: normal;
+    text-align: center;
 }
 
 #newEventHeader, #hostingEventsHeader {
@@ -123,3 +127,6 @@ h2 {
 }
 
 /*Scott End*/
+.form-group {
+    margin-bottom: 0rem;
+}
