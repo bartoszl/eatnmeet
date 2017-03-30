@@ -118,7 +118,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             var events = [{
                     id: 0,
                     host_id: 0,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("February 13, 2017 18:00:00"),
                     street: '68 Ingram Street',
                     city: 'Glasgow',
@@ -129,7 +128,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 1,
                     host_id: 2,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("February 21, 2017 19:30:00"),
                     street: '22 Duke Street',
                     city: 'Glasgow',
@@ -140,7 +138,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 2,
                     host_id: 1,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("March 03, 2017 18:30:00"),
                     street: '13 George Street',
                     city: 'Glasgow',
@@ -151,7 +148,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 3,
                     host_id: 5,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("April 02, 2017 16:30:00"),
                     street: '68 Ingram Street',
                     city: 'Glasgow',
@@ -162,7 +158,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 4,
                     host_id: 3,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("April 12, 2017 20:30:00"),
                     street: '22 Duke Street',
                     city: 'Glasgow',
@@ -173,7 +168,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 5,
                     host_id: 3,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("April 23, 2017 17:00:00"),
                     street: '13 George Street',
                     city: 'Glasgow',
@@ -184,7 +178,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 6,
                     host_id: 4,
-                    time: new Date(1970, 0, 1, 18, 0, 0),
                     date: new Date("April 23, 2017 17:00:00"),
                     street: '13 George Street',
                     city: 'Glasgow',
@@ -229,7 +222,6 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 events.push({
                     id: $scope.eventToAdd.id,
                     host_id: $scope.eventToAdd.host_id,
-                    time: $scope.eventToAdd.time,
                     date: $scope.eventToAdd.date,
                     street: $scope.eventToAdd.street,
                     city: $scope.eventToAdd.city,
@@ -238,6 +230,8 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     price: $scope.eventToAdd.price,
                     picture: '/images/event6.png'
                 });
+                //events[7].date = new Date(eventsToAdd.date + eventsToAdd.time.)
+                events[events.length-1].date = new Date(Date.parse($scope.eventToAdd.date) + $scope.eventToAdd.time.getTime());
                 console.log("added");
                 $scope.saveEvents();
                 $location.path('/event-list');
@@ -324,6 +318,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                         return "Saturday";
                 }
             };
+			$scope.getDateName = function (date) {
+                return date.getDate();     
+            };
             $scope.getMonthName = function (date) {
                 switch (date.getMonth()) {
                     case 0:
@@ -359,6 +356,9 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 } else {
                     return min;
                 }
+            };
+			$scope.getHour = function (date) {
+                return date.getHours();     
             };
 
             $scope.rate = function (new_rate, host_id) {
@@ -564,6 +564,29 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                       pos2.lat = pos2.lat + 0.002;
                       var marker2 = new google.maps.Marker({
                           position: pos2,
+                          map: map
+
+                      });
+                      var pos3 = pos;
+                      pos3.lat = pos3.lat - 0.004;
+                      var marker2 = new google.maps.Marker({
+                          position: pos3,
+                          map: map
+
+                      });
+                      var pos4 = pos;
+                      pos4.lat = pos4.lat + 0.003;
+                      pos4.lng = pos4.lng + 0.002;
+                      var marker2 = new google.maps.Marker({
+                          position: pos4,
+                          map: map
+
+                      });
+                      var pos5 = pos;
+                      pos5.lat = pos5.lat - 0.002;
+                      pos5.lng = pos5.lng - 0.004;
+                      var marker2 = new google.maps.Marker({
+                          position: pos5,
                           map: map
 
                       });
