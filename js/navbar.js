@@ -21,7 +21,11 @@ app.component("eatNavbar",{
                 $location.path('/eat-or-cook');
                 $scope.toggleNavbar();
             };
-         
+            
+            $scope.goToMyProfile = function() {
+                $location.path('/edit-profile');
+                $scope.toggleNavbar();
+            };
             
          $scope.goToYourEvents= function() {
                 $location.path('/hosting-events');
