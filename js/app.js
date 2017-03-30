@@ -379,9 +379,27 @@ var app = angular.module('myApp', ['ngRoute'])
                                 }
                             });
                         });
-                        return events;
                     }
                 });
+                return events;
+            };
+            
+            
+            
+            $scope.previousEvents = function () {
+                events = [];
+                $scope.people.forEach(function (person) {
+                    if (person.id === $scope.currentUserId) {
+                        person.visited_events_id.forEach(function (event_id) {
+                            $scope.eventList.forEach(function (event) {
+                                if (event.id === event_id) {
+                                    events.push(event);
+                                }
+                            });
+                        });
+                    }
+                });
+                return events;
             };
 
             $scope.eventDetails = function (event) {
