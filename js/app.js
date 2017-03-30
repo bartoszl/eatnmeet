@@ -423,7 +423,17 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             $scope.addToAttending = function (id) {
                 people[0].upcoming_event_id.push(parseInt(id));
                 localStorage.people = angular.toJson(people);
-                
+
+            };
+
+            $scope.usersEvent = function (id) {
+                $scope.eventList.forEach(function (ev) {
+                    if (ev.id === id){
+                        if (ev.host_id === 3){
+                            return true;
+                        } else return false;
+                    }
+                });
             };
 
 
