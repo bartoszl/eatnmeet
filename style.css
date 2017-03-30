@@ -17,6 +17,7 @@ and open the template in the editor.
     -webkit-tap-highlight-color: transparent;
 }
 
+
 /*Ksenia Pages Start*/
 
 .col1 {
@@ -64,6 +65,12 @@ and open the template in the editor.
   align-items: center;
 }
 
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 6px;
+}
 
 /*Ksenia Pages End*/
 
