@@ -206,7 +206,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
             $scope.currentUserId = 3;
 
             $scope.eventToAdd = {
-                id: 7,
+                id: events.length,
                 host_id: 2,
                 date: "Date",
                 street: "Street name",
@@ -217,7 +217,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 picture: '/images/event6.png'
             };
             $scope.addEvent = function (eventToAdd) {
-                //$scope.eventList.push(angular.copy(eventToAdd));
+                
                 events.push({
                     id: $scope.eventToAdd.id,
                     host_id: $scope.eventToAdd.host_id,
