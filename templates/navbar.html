@@ -1,10 +1,10 @@
 <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
 
     <a class="nav-link" onclick="goBack()">
-        <img src="images/back.png" width="30" height="30">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
 
-    <a class="navbar-brand" href="#">
+    <a class="nav-item abs-center-x" href="#">
         <img src="images/icon.jpg" width="30" height="30">
     </a>
 
@@ -16,13 +16,19 @@
     <div class="collapse navbar-collapse" id="menuItems">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" ng-click="goHome()">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Your Events</a>
+                <a class="nav-link" ng-click="goToYourEvents()">Hosting Events</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">What Ever Else</a>
+                <a class="nav-link" ng-click="goToAttendingEvents()">Upcomming Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-click="goToPreviousEvent()">Atended Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-click="goToNewEvent()">Add New Event</a>
             </li>
         </ul>
     </div>

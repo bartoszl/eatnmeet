@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
+var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) 
         .config(function ($routeProvider) {
             $routeProvider
                     .when("/", {
