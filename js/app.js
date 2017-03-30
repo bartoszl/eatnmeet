@@ -167,7 +167,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     picture: '/images/event4.jpg'
                 }, {
                     id: 5,
-                    host_id: 3,
+                    host_id: 6,
                     date: new Date("April 23, 2017 17:00:00"),
                     street: '13 George Street',
                     city: 'Glasgow',
