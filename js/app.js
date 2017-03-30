@@ -244,9 +244,16 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             };
             
             $scope.updateUserInfo = function () {
-                var location = document.getElementById(userLocation);
+                var location = document.getElementsByName("userLocation")[0],
+                    image = document.getElementsByName("userImage")[0],
+                    description = document.getElementsByName("userDescription")[0];
+            
                 people[0].city = location.value;
+                people[0].picture = image.value;
+                people[0].description = description.value;
                 console.log("Location was: " + location.value);
+                console.log("Image was: " + image.value);
+                console.log("Description was: " + description.value);
             };
 
             $scope.saveEvents = function (){
