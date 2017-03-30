@@ -61,7 +61,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 }, {
                     id: 1,
                     name: "Chris",
-                    description: "Welcome to my profile page! I am from Greece and I will be hosting many greek meals in the future. I will keep you posted.",
+                    description: "Welcome to my profile page! I am traveler from Seattle and I serve good round the word food.",
                     rating: 4,
                     no_rates: 5,
                     city: "Glasgow",

@@ -9,7 +9,7 @@
                     <img class="img-thumbnail ml-3" src="./{{getCurrentUser().profile_image}}" alt="profile image" height="128" width="128"/>
                 </div>
                 <div class="col-xs-6">
-                    <table>
+                 <table>
                         <tr>
                             <td><h2 class="ml-4">{{getCurrentUser().name}}</h2></td>
                         </tr>
@@ -18,19 +18,18 @@
                             <td><h6 class="ml-1">{{getCurrentUser().rating}}/5</h6></td>
                         </tr>
                     </table>
-                    <br/>
-                    <input id="userImage" type="file" accept="image/*" name="userImage"/>
+                   
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col">
-                    <p class="h4 text-center">Personal Details</p>
+                    <p><input id="userImage" type="file" accept="image/*" name="userImage"/></p>
                     <table><tr>
-                            <td><h6 class="ml-3">No. Rates:</h6></td>
+                            <td><h6 class="ml-3">No. Rates </h6></td>
                             <td><h6>{{getCurrentUser().no_rates}}</h6></td>
                         </tr>
                         <tr>
-                            <td><h6 class="ml-3">Location:</h6></td>
+                            <td><h6 class="ml-3">Location </h6></td>
                             <td>
                                 <h6>
                                     <input name="userLocation" type="text" value="{{getCurrentUser().city}}"/>
@@ -38,9 +37,9 @@
                             </td>
                         </tr>
                     </table>
-                    <p class="h4 text-center mt-2">Description</p>
+                    <p class="h4 text-center mt-2">About me </p>
                     <div>
-                        <textarea name="userDescription" style="width:100%" rows="6">{{getCurrentUser().description}}</textarea>
+                        <textarea name="userDescription" style="width:100%" rows="5">{{getCurrentUser().description}}</textarea>
                     </div>
                 </div>
             </div>
