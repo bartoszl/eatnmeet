@@ -171,7 +171,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     picture: '/images/event4.jpg'
                 }, {
                     id: 5,
-                    host_id: 3,
+                    host_id: 6,
                     date: new Date("April 23, 2017 17:00:00"),
                     street: '13 George Street',
                     city: 'Glasgow',
@@ -193,16 +193,20 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
 
             var filter = document.getElementById('filter');
 
-            $scope.toggleFilter = function() {
-              if(!filter.classList.contains("show")) {
-                filter.classList.add("show");
-              } else {
-                filter.classList.remove("show");
-              }
+            $scope.toggleFilter = function () {
+                if (!filter.classList.contains("show")) {
+                    filter.classList.add("show");
+                } else {
+                    filter.classList.remove("show");
+                }
             };
 
-            if (localStorage.getItem('events') !== null){
+            if (localStorage.getItem('events') !== null) {
                 events = angular.fromJson(localStorage.events);
+            }
+
+            if (localStorage.getItem("people") !== null) {
+                people = angular.fromJson(localStorage.people);
             }
 
             $scope.eventList = events;
@@ -221,7 +225,7 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 price: 0,
                 picture: '/images/event6.png'
             };
-            
+
             $scope.addEvent = function (eventToAdd) {
 
                 events.push({
@@ -236,36 +240,37 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     picture: '/images/event6.png'
                 });
                 //events[7].date = new Date(eventsToAdd.date + eventsToAdd.time.)
-                events[events.length-1].date = new Date(Date.parse($scope.eventToAdd.date) + $scope.eventToAdd.time.getTime());
+                events[events.length - 1].date = new Date(Date.parse($scope.eventToAdd.date) + $scope.eventToAdd.time.getTime());
                 console.log("added");
                 $scope.saveEvents();
                 $location.path('/event-list');
 
             };
-            
+
             $scope.updateUserInfo = function () {
                 var location = document.getElementsByName("userLocation")[0],
-                    image = document.getElementsByName("userImage")[0],
-                    description = document.getElementsByName("userDescription")[0];
-            
+                        image = document.getElementsByName("userImage")[0],
+                        description = document.getElementsByName("userDescription")[0];
+
                 people[0].city = location.value;
-                people[0].picture = image.value;
+                if (image.value !== null) {
+                    people[0].picture = image.value;
+                }
                 people[0].description = description.value;
-                console.log("Location was: " + location.value);
-                console.log("Image was: " + image.value);
-                console.log("Description was: " + description.value);
+
+                localStorage.people = angular.toJson(people);
+                console.log("Saved " + people[0].city + " to localStorage");
             };
 
-            $scope.saveEvents = function (){
+            $scope.saveEvents = function () {
                 localStorage.events = angular.toJson(events);
                 console.log("Save");
             };
 
             $scope.loadEvents = function () {
                 return angular.fromJson(localStorage.events);
-
-
             };
+
             $scope.getUserById = function () {
                 var id = $routeParams.id;
                 // for loop through all profiles
@@ -299,22 +304,22 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
             };
 
 
-            $scope.drawStars = function(host_id) {
+            $scope.drawStars = function (host_id) {
                 var inner = "";
                 $scope.people.map(function (person) {
                     if (person.id === host_id) {
                         var fullStars = person.rating;
-                        var emptyStars = 5-fullStars;
-                        while(fullStars-->0){
-                            inner +=' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>';
+                        var emptyStars = 5 - fullStars;
+                        while (fullStars-- > 0) {
+                            inner += ' <i class="fa fa-star yellow-star" aria-hidden="true" ng-click="rate(1, event.host_id)"></i>';
 
                         }
-                        while(emptyStars-->0){
-                            inner +=' <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>';
+                        while (emptyStars-- > 0) {
+                            inner += ' <i class="fa fa-star-o empty-star" aria-hidden="true" ng-click="rate(4, event.host_id)"></i>';
                         }
                     }
                 });
-            return inner;
+                return inner;
             };
 
 
@@ -336,8 +341,8 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                         return "Saturday";
                 }
             };
-			$scope.getDateName = function (date) {
-                return date.getDate();     
+            $scope.getDateName = function (date) {
+                return date.getDate();
             };
             $scope.getMonthName = function (date) {
                 switch (date.getMonth()) {
@@ -375,8 +380,8 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                     return min;
                 }
             };
-			$scope.getHour = function (date) {
-                return date.getHours();     
+            $scope.getHour = function (date) {
+                return date.getHours();
             };
 
             $scope.rate = function (new_rate, host_id) {
@@ -432,10 +437,10 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 });
                 return events;
             };
-            
+
             $scope.getCurrentUser = function () {
-              return people[0];
-              // Zlatan
+                return people[0];
+                // Zlatan
             };
 
             $scope.eventDetails = function (event) {
@@ -448,95 +453,95 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 details.push(event.price);
             };
 
-            $scope.getIdFromUrl = function() {
-              console.log($routeParams.id);
-              return $routeParams.id;
+            $scope.getIdFromUrl = function () {
+                console.log($routeParams.id);
+                return $routeParams.id;
             };
 
-            $scope.goToProfile = function(id) {
-                $location.path('/profile/'+id);
+            $scope.goToProfile = function (id) {
+                $location.path('/profile/' + id);
                 //$scope.$apply();
             };
-            $scope.goToEvent = function(id) {
+            $scope.goToEvent = function (id) {
 
-                $location.path('/event/'+id);
+                $location.path('/event/' + id);
                 $scope.loadEvents();
                 //$scope.$apply();
             };
 
-            $scope.sortByNameAZ = function() {
-              $scope.eventList.sort(function(a, b) {
-                  var textA = a.DepartmentName.toUpperCase();
-                  var textB = b.DepartmentName.toUpperCase();
-                  return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-              });
-              $scope.toggleFilter();
+            $scope.sortByNameAZ = function () {
+                $scope.eventList.sort(function (a, b) {
+                    var textA = a.DepartmentName.toUpperCase();
+                    var textB = b.DepartmentName.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByPriceDesc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  return a.price - b.price;
-              });
-              $scope.toggleFilter();
+            $scope.sortByPriceDesc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    return a.price - b.price;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByPriceAsc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  return b.price - a.price;
-              });
-              $scope.toggleFilter();
+            $scope.sortByPriceAsc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    return b.price - a.price;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByRatingDesc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  var a_rating;
-                  people.map(function(person){
-                    if(person.id == a.host_id){
-                      a_rating = person.rating;
-                    }
-                  });
-                  var b_rating;
-                  people.map(function(person){
-                    if(person.id == b.host_id){
-                      b_rating = person.rating;
-                    }
-                  });
-                  return a_rating - b_rating;
-              });
-              $scope.toggleFilter();
+            $scope.sortByRatingDesc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    var a_rating;
+                    people.map(function (person) {
+                        if (person.id == a.host_id) {
+                            a_rating = person.rating;
+                        }
+                    });
+                    var b_rating;
+                    people.map(function (person) {
+                        if (person.id == b.host_id) {
+                            b_rating = person.rating;
+                        }
+                    });
+                    return a_rating - b_rating;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByRatingAsc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  var a_rating;
-                  people.map(function(person){
-                    if(person.id == a.host_id){
-                      a_rating = person.rating;
-                    }
-                  });
-                  var b_rating;
-                  people.map(function(person){
-                    if(person.id == b.host_id){
-                      b_rating = person.rating;
-                    }
-                  });
-                  return b_rating - a_rating;
-              });
-              $scope.toggleFilter();
+            $scope.sortByRatingAsc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    var a_rating;
+                    people.map(function (person) {
+                        if (person.id == a.host_id) {
+                            a_rating = person.rating;
+                        }
+                    });
+                    var b_rating;
+                    people.map(function (person) {
+                        if (person.id == b.host_id) {
+                            b_rating = person.rating;
+                        }
+                    });
+                    return b_rating - a_rating;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByDateAsc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  return a.date - b.date;
-              });
-              $scope.toggleFilter();
+            $scope.sortByDateAsc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    return a.date - b.date;
+                });
+                $scope.toggleFilter();
             };
 
-            $scope.sortByDateDesc = function() {
-              $scope.eventList.sort(function(a, b) {
-                  return b.date - a.date;
-              });
-              $scope.toggleFilter();
+            $scope.sortByDateDesc = function () {
+                $scope.eventList.sort(function (a, b) {
+                    return b.date - a.date;
+                });
+                $scope.toggleFilter();
             };
         })
 
@@ -556,67 +561,68 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                 //$scope.$apply();
             };
         })
-        .controller('MapController', function($scope, $location) {
-          function initMap() {
-              var glasgow = {lat: 55.864, lng: -4.251};
-              var map = document.getElementById('map');
-              var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 15,
-                  center: glasgow,
-                  streetViewControl: false,
-                  fullscreenControl: false,
-                  mapTypeControl: false,
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
-              });
-              var image = 'images/bluedot.png';
+        .controller('MapController', function ($scope, $location) {
+            function initMap() {
+                var glasgow = {lat: 55.864, lng: -4.251};
+                var map = document.getElementById('map');
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: glasgow,
+                    streetViewControl: false,
+                    fullscreenControl: false,
+                    mapTypeControl: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                var image = 'images/bluedot.png';
 
 
-              if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(function (position) {
-                      var pos = {
-                          lat: position.coords.latitude,
-                          lng: position.coords.longitude
-                      };
-                      map.setCenter(pos);
-                      var marker = new google.maps.Marker({
-                          position: pos,
-                          map: map,
-                          icon: image
-                      });
-                      var pos2 = pos;
-                      pos2.lat = pos2.lat + 0.002;
-                      var marker2 = new google.maps.Marker({
-                          position: pos2,
-                          map: map
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        map.setCenter(pos);
+                        var marker = new google.maps.Marker({
+                            position: pos,
+                            map: map,
+                            icon: image
+                        });
+                        var pos2 = pos;
+                        pos2.lat = pos2.lat + 0.002;
+                        var marker2 = new google.maps.Marker({
+                            position: pos2,
+                            map: map
 
-                      });
-                      var pos3 = pos;
-                      pos3.lat = pos3.lat - 0.004;
-                      var marker2 = new google.maps.Marker({
-                          position: pos3,
-                          map: map
+                        });
+                        var pos3 = pos;
+                        pos3.lat = pos3.lat - 0.004;
+                        var marker2 = new google.maps.Marker({
+                            position: pos3,
+                            map: map
 
-                      });
-                      var pos4 = pos;
-                      pos4.lat = pos4.lat + 0.003;
-                      pos4.lng = pos4.lng + 0.002;
-                      var marker2 = new google.maps.Marker({
-                          position: pos4,
-                          map: map
+                        });
+                        var pos4 = pos;
+                        pos4.lat = pos4.lat + 0.003;
+                        pos4.lng = pos4.lng + 0.002;
+                        var marker2 = new google.maps.Marker({
+                            position: pos4,
+                            map: map
 
-                      });
-                      var pos5 = pos;
-                      pos5.lat = pos5.lat - 0.002;
-                      pos5.lng = pos5.lng - 0.004;
-                      var marker2 = new google.maps.Marker({
-                          position: pos5,
-                          map: map
+                        });
+                        var pos5 = pos;
+                        pos5.lat = pos5.lat - 0.002;
+                        pos5.lng = pos5.lng - 0.004;
+                        var marker2 = new google.maps.Marker({
+                            position: pos5,
+                            map: map
 
-                      });
-                  });
-              }
-          };
+                        });
+                    });
+                }
+            }
+            ;
 
-          initMap();
+            initMap();
 
         });
