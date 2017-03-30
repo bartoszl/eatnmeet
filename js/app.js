@@ -417,7 +417,13 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize"]) // ["ngSanitize"]
                 details.push(event.price);
             };
 
+            $scope.getIdFromUrl = function() {
+              console.log($routeParams.id);
+              return $routeParams.id;
+            };
+
             $scope.goToProfile = function(id) {
+                console.log('clicked');
                 $location.path('/profile/'+id);
                 //$scope.$apply();
             };
