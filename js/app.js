@@ -434,7 +434,14 @@ var app = angular.module('myApp', ['ngRoute', "ngSanitize", "720kb.datepicker"])
                             $scope.uE = true;
                         }
                     }
-                });return $scope.uE;
+                });
+                $scope.people[0].upcoming_event_id.forEach(function (upEvId) {
+                    if (upEvId == id){
+                        $scope.uE = true;
+                    }
+                });
+                
+                return $scope.uE;
             };
 
 
